@@ -12,7 +12,7 @@
 </head>
 <body>
     
-    <div class="chess_board">
+    <div class="chess_board" onclick="start()">
         <div class="board_row"><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div></div>
         <div class="board_row"><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div></div>
         <div class="board_row"><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div></div>
@@ -25,8 +25,19 @@
 
     <div class="control_area">
 
-        <button onclick="start()">Start</button>
-        <input>
+        <div class="input_group">
+            <h1>FEN</h1>
+            <input value="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1" id="fen_input">
+        </div>
+        <div class="input_group">
+            <button class="full" onclick="resetFen()">Reset Fen</button>
+        </div>
+        <div class="input_group">
+            <select class="full" id="playAs">
+                <option>White</option>
+                <option>Black</option>
+            </select>
+        </div>
 
     </div>
 

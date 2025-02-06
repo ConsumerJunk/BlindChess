@@ -1,5 +1,4 @@
 myColor = "b";
-var boardDom = document.getElementsByClassName("chess_board")[0];
 
 var board = [
 	["R","N","B","Q","K","B","N","R"],
@@ -23,6 +22,7 @@ var totalMoves = 8;
 
 function applyFen(fen) {
 
+	fenInput.value = fen;
 	fen = fen.split(" ");
 	fenRows = fen[0].split("/");
 	toMove = fen[1];
@@ -44,6 +44,7 @@ function applyFen(fen) {
 	}
 
 	for(var y = fenRows.length - 1; y >= 0; y--) {	
+	// for(var y = 0; y < fenRows.length; y++) {	
 		
 		var row = fenRows[y];
 
@@ -69,7 +70,8 @@ function getFen() {
 
 	var fen = "";
 
-	for(var y = board.length - 1; y >= 0; y--){
+	// for(var y = board.length - 1; y >= 0; y--){
+	for(var y = 0; y < board.length; y++){
 
 		var row = board[y];
 		var spaces = 0;
@@ -130,8 +132,8 @@ function updateBoardDom() {
 			var dom = boardDom.getElementsByClassName("board_row")[7-y].getElementsByClassName("tile")[x];
 			dom.classList.remove("black");
 			dom.classList.remove("white");
-			if(getColor(x, y) == "w") dom.classList.add("white");
-			if(getColor(x, y) == "b") dom.classList.add("black");
+			if(getColor(x, y) == "w") dom.classList.add("black");
+			if(getColor(x, y) == "b") dom.classList.add("white");
 
 		}
 	}
@@ -168,6 +170,7 @@ function opponentMove(from, to) {
 	console.log("Opponent: " + text + " (" + piece + ")");
 
 	updateBoardDom();
+	fenInput.value = getFen();
 
 }
 
@@ -190,5 +193,6 @@ function iMove(from, to) {
 	console.log("Me: " + text);
 
 	updateBoardDom();
+	fenInput.value = getFen();
 	
 }

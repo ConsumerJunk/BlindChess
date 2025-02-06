@@ -1,6 +1,9 @@
 body {
+
 	background-color: rgb(58, 59, 63);
 	margin: 0px;
+	font-family: sans-serif;
+
 }
 
 .chess_board {
@@ -18,6 +21,10 @@ body {
 	border-radius: 5%;
 	overflow: hidden;
 
+}
+
+.flip {
+	transform: scaleY(-1);
 }
 
 .chess_board .board_row {
@@ -46,7 +53,7 @@ body {
 	
 	width: 80vw;
 	margin-left: 10vw;
-	background-color: rgba(0, 0, 0, 0.2);
+	margin-top: 20px;
 
 	input {
 		padding: 10px;
@@ -62,4 +69,35 @@ body {
 
 .tile.white {
 	background-color: white !important;
+}
+
+.input_group {
+
+	color: rgba(0, 0, 0, 0.5);
+	
+	*:nth-child(1) {
+		margin-right: 5px;
+	}
+	
+	h1 {
+		width: 10%;
+		overflow: hidden;
+		font-size: 1em;
+	}
+	input {
+		width: 80%;
+	}
+	
+	* {
+		display: inline-block;
+		vertical-align: middle;
+		margin-bottom: 10px;
+		border-radius: 10px; 
+	}
+
+	.full {
+		width: 100%;
+		height: 30px;
+	}
+
 }
